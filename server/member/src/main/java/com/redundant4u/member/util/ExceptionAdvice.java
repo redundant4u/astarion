@@ -16,19 +16,19 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RequiredArgsConstructor
 public class ExceptionAdvice {
 
-  private final ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
-  @ExceptionHandler(HttpException.class)
-  public ResponseEntity httpExceptionHandler(HttpException exception) {
-    return ErrorResponse.from(exception);
-  }
+    @ExceptionHandler(HttpException.class)
+    public ResponseEntity httpExceptionHandler(HttpException exception) {
+        return ErrorResponse.from(exception);
+    }
 
-  @ExceptionHandler(FeignException.class)
-  public ResponseEntity feignExceptionHandler(FeignException feignException)
-      throws JsonProcessingException {
-    String responseJson = feignException.contentUTF8();
-    Map<String, String> responseMap = objectMapper.readValue(responseJson, Map.class);
+    @ExceptionHandler(FeignException.class)
+    public ResponseEntity feignExceptionHandler(FeignException feignException)
+            throws JsonProcessingException {
+        String responseJson = feignException.contentUTF8();
+        Map<String, String> responseMap = objectMapper.readValue(responseJson, Map.class);
 
-    return ResponseEntity.status(feignException.status()).body(responseMap);
-  }
+        return ResponseEntity.status(feignException.status()).body(responseMap);
+    }
 }
