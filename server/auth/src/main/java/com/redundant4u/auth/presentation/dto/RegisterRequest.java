@@ -6,11 +6,14 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class LoginRequest {
+public class RegisterRequest {
 
     @NotNull
     private String account;
 
     @NotNull
     private String password;
+
+    @NotNull
+    private String email;
 }
