@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/internal")
 @RequiredArgsConstructor
 public class MemberInternalController {
-
   private final MemberInternalService memberInternalService;
 
   @PostMapping()

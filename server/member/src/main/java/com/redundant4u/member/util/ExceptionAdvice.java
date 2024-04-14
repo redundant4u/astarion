@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 @RequiredArgsConstructor
 public class ExceptionAdvice {
-
     private final ObjectMapper objectMapper;
 
     @ExceptionHandler(HttpException.class)

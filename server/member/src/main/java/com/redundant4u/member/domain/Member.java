@@ -17,7 +17,6 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 public class Member {
-
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false, updatable = false)
