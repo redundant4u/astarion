@@ -2,3 +2,10 @@
 .idea
 .vscode
 .env
+
+api.http
+
+infra/docker/**/application
+infra/docker/**/dependencies
+infra/docker/**/snapshot-dependencies
+infra/docker/**/spring-boot-loader
