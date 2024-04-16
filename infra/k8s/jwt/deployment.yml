@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: astarion
+  name: jwt
+spec:
+  selector:
+    matchLabels:
+      app: jwt
+  template:
+    metadata:
+      labels:
+        app: jwt
+    spec:
+      containers:
+        - name: jwt
+          image: astarion:jwt
+          imagePullPolicy: Never
+          env:
+          - name: PORT
+            value: "8082"
+          envFrom:
+          - secretRef:
+              name: astarion-jwt-secret

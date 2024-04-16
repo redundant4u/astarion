@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: astarion
+  name: auth
+spec:
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+        - name: auth
+          image: astarion:auth
+          imagePullPolicy: Never
+          env:
+          - name: PORT
+            value: "8080"
+          envFrom:
+          - secretRef:
+              name: astarion-db-connect-secret
+          - secretRef:
+              name: astarion-jwt-secret

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: astarion
+  name: astarion-db
+spec:
+  selector:
+    app: astarion-db
+  ports:
+    - port: 3306
+      targetPort: 3306
+      name: mysql
+  type: ClusterIP
