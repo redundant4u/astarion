@@ -15,10 +15,11 @@ spec:
       containers:
         - name: member
           image: astarion:member
-          imagePullPolicy: Never
           env:
           - name: PORT
             value: "8081"
           envFrom:
           - secretRef:
               name: astarion-db-connect-secret
+      imagePullSecrets:
+        - name: aws-ecr-secret

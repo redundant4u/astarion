@@ -15,10 +15,11 @@ spec:
       containers:
         - name: jwt
           image: astarion:jwt
-          imagePullPolicy: Never
           env:
           - name: PORT
             value: "8082"
           envFrom:
           - secretRef:
               name: astarion-jwt-secret
+      imagePullSecrets:
+        - name: aws-ecr-secret

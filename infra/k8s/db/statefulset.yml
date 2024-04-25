@@ -31,3 +31,5 @@ spec:
         - name: astarion-db-init-sql-configmap
           configMap:
             name: astarion-db-init-sql-configmap
+      imagePullSecrets:
+        - name: aws-ecr-secret

@@ -15,7 +15,6 @@ spec:
       containers:
         - name: auth
           image: astarion:auth
-          imagePullPolicy: Never
           env:
           - name: PORT
             value: "8080"
@@ -24,3 +23,5 @@ spec:
               name: astarion-db-connect-secret
           - secretRef:
               name: astarion-jwt-secret
+      imagePullSecrets:
+        - name: aws-ecr-secret
